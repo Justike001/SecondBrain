@@ -1,0 +1,42 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Obsidian local/runtime state
+.obsidian/workspace*.json
+.obsidian/workspaces.json
+.obsidian/cache/
+.obsidian/plugins/*/data.json
+
+# Local temp/trash
+.trash/
+*.tmp
+tmp/
+.git_backup_old/
+config/local.json
+
+# Vault content privacy for repo2: keep hierarchy, stop tracking detailed note files
+vault-template/02_Daily/**
+!vault-template/02_Daily/**/
+!vault-template/02_Daily/**/.gitkeep
+vault-template/03_Projects/**
+!vault-template/03_Projects/**/
+!vault-template/03_Projects/**/.gitkeep
+vault-template/04_Resources/**
+!vault-template/04_Resources/**/
+!vault-template/04_Resources/**/.gitkeep
+vault-template/05_Thinking/**
+!vault-template/05_Thinking/**/
+!vault-template/05_Thinking/**/.gitkeep
+vault-template/06_PersonalLife/**
+!vault-template/06_PersonalLife/**/
+!vault-template/06_PersonalLife/**/.gitkeep
+vault-template/07_Articles/**
+!vault-template/07_Articles/**/
+!vault-template/07_Articles/**/.gitkeep
+vault-template/08_Attachments/**
+!vault-template/08_Attachments/**/
+!vault-template/08_Attachments/**/.gitkeep
+vault-template/99_Archive/**
+!vault-template/99_Archive/**/
+!vault-template/99_Archive/**/.gitkeep

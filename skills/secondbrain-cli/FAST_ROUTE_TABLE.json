@@ -1,0 +1,807 @@
+{
+  "version": 1,
+  "generated_at": "2026-03-05T09:37:16+08:00",
+  "description": "Fast routing table for secondbrain-cli to avoid full SKILL.md scanning.",
+  "high_priority_phrases": {
+    "查看今日计划": "today",
+    "看看我昨天干了什么": "daily-open --date yesterday",
+    "总结今日对话": "daily-wrapup --date today",
+    "总结今日对话并推送": "daily-wrapup --date today --push",
+    "今天收工": "daily-wrapup --date today --archive --push",
+    "结束今天并归档旧记录": "daily-wrapup --date today --archive --push",
+    "作今日餐食记录": "diet-capture",
+    "我有一个想法": "idea-capture",
+    "试着开始头脑风暴": "brainstorm"
+  },
+  "commands": [
+    {
+      "command": "archive-daily",
+      "aliases": [],
+      "mode": "canonical",
+      "intent_keywords": [
+        "归档旧记录",
+        "archive"
+      ],
+      "required_positionals": [],
+      "required_options": [],
+      "template": "python cli/secondbrain.py --vault vault-template archive-daily",
+      "execution_policy": {
+        "recall": "required",
+        "precheck": "none",
+        "verify": "exit_code_and_path_only",
+        "fallback_on_failure": [
+          "schema_cache",
+          "help",
+          "source_snippet"
+        ]
+      }
+    },
+    {
+      "command": "article-draft",
+      "aliases": [],
+      "mode": "canonical",
+      "intent_keywords": [
+        "文章草稿",
+        "article draft"
+      ],
+      "required_positionals": [
+        "title"
+      ],
+      "required_options": [],
+      "template": "python cli/secondbrain.py --vault vault-template article-draft <title>",
+      "execution_policy": {
+        "recall": "optional",
+        "precheck": "none",
+        "verify": "exit_code_and_path_only",
+        "fallback_on_failure": [
+          "schema_cache",
+          "help",
+          "source_snippet"
+        ]
+      }
+    },
+    {
+      "command": "article-move",
+      "aliases": [],
+      "mode": "canonical",
+      "intent_keywords": [
+        "文章排期",
+        "文章发布",
+        "article move"
+      ],
+      "required_positionals": [
+        "ref"
+      ],
+      "required_options": [
+        "--to"
+      ],
+      "template": "python cli/secondbrain.py --vault vault-template article-move <ref> --to <to>",
+      "execution_policy": {
+        "recall": "required",
+        "precheck": "none",
+        "verify": "exit_code_and_path_only",
+        "fallback_on_failure": [
+          "schema_cache",
+          "help",
+          "source_snippet"
+        ]
+      }
+    },
+    {
+      "command": "ask",
+      "aliases": [],
+      "mode": "canonical",
+      "intent_keywords": [
+        "知识库查询",
+        "ask"
+      ],
+      "required_positionals": [
+        "question"
+      ],
+      "required_options": [],
+      "template": "python cli/secondbrain.py --vault vault-template ask <question>",
+      "execution_policy": {
+        "recall": "required",
+        "precheck": "none",
+        "verify": "exit_code_and_path_only",
+        "fallback_on_failure": [
+          "schema_cache",
+          "help",
+          "source_snippet"
+        ]
+      }
+    },
+    {
+      "command": "brainstorm",
+      "aliases": [],
+      "mode": "canonical",
+      "intent_keywords": [
+        "头脑风暴",
+        "brainstorm"
+      ],
+      "required_positionals": [
+        "topic"
+      ],
+      "required_options": [],
+      "template": "python cli/secondbrain.py --vault vault-template brainstorm <topic>",
+      "execution_policy": {
+        "recall": "required",
+        "precheck": "none",
+        "verify": "exit_code_and_path_only",
+        "fallback_on_failure": [
+          "schema_cache",
+          "help",
+          "source_snippet"
+        ]
+      }
+    },
+    {
+      "command": "capture",
+      "aliases": [
+        "capture-url"
+      ],
+      "mode": "canonical",
+      "intent_keywords": [
+        "capture"
+      ],
+      "required_positionals": [
+        "url"
+      ],
+      "required_options": [],
+      "template": "python cli/secondbrain.py --vault vault-template capture <url>",
+      "execution_policy": {
+        "recall": "required",
+        "precheck": "none",
+        "verify": "exit_code_and_path_only",
+        "fallback_on_failure": [
+          "schema_cache",
+          "help",
+          "source_snippet"
+        ]
+      }
+    },
+    {
+      "command": "challenge",
+      "aliases": [],
+      "mode": "canonical",
+      "intent_keywords": [
+        "挑战观点",
+        "challenge"
+      ],
+      "required_positionals": [
+        "belief"
+      ],
+      "required_options": [],
+      "template": "python cli/secondbrain.py --vault vault-template challenge <belief>",
+      "execution_policy": {
+        "recall": "required",
+        "precheck": "none",
+        "verify": "exit_code_and_path_only",
+        "fallback_on_failure": [
+          "schema_cache",
+          "help",
+          "source_snippet"
+        ]
+      }
+    },
+    {
+      "command": "close",
+      "aliases": [],
+      "mode": "compatibility",
+      "intent_keywords": [
+        "close"
+      ],
+      "required_positionals": [],
+      "required_options": [],
+      "template": "python cli/secondbrain.py --vault vault-template close",
+      "execution_policy": {
+        "recall": "required",
+        "precheck": "none",
+        "verify": "exit_code_and_path_only",
+        "fallback_on_failure": [
+          "schema_cache",
+          "help",
+          "source_snippet"
+        ]
+      }
+    },
+    {
+      "command": "connect",
+      "aliases": [],
+      "mode": "canonical",
+      "intent_keywords": [
+        "连接两个领域",
+        "connect"
+      ],
+      "required_positionals": [
+        "domain_a",
+        "domain_b"
+      ],
+      "required_options": [],
+      "template": "python cli/secondbrain.py --vault vault-template connect <domain_a> <domain_b>",
+      "execution_policy": {
+        "recall": "required",
+        "precheck": "none",
+        "verify": "exit_code_and_path_only",
+        "fallback_on_failure": [
+          "schema_cache",
+          "help",
+          "source_snippet"
+        ]
+      }
+    },
+    {
+      "command": "daily-open",
+      "aliases": [],
+      "mode": "canonical",
+      "intent_keywords": [
+        "昨天干了什么",
+        "打开日报",
+        "daily-open"
+      ],
+      "required_positionals": [],
+      "required_options": [],
+      "template": "python cli/secondbrain.py --vault vault-template daily-open",
+      "execution_policy": {
+        "recall": "required",
+        "precheck": "none",
+        "verify": "exit_code_and_path_only",
+        "fallback_on_failure": [
+          "schema_cache",
+          "help",
+          "source_snippet"
+        ]
+      }
+    },
+    {
+      "command": "daily-wrapup",
+      "aliases": [],
+      "mode": "canonical",
+      "intent_keywords": [
+        "今天收工",
+        "结束今天",
+        "总结今日对话"
+      ],
+      "required_positionals": [],
+      "required_options": [],
+      "template": "python cli/secondbrain.py --vault vault-template daily-wrapup",
+      "execution_policy": {
+        "recall": "optional",
+        "precheck": "none",
+        "verify": "exit_code_and_path_only",
+        "fallback_on_failure": [
+          "schema_cache",
+          "help",
+          "source_snippet"
+        ]
+      }
+    },
+    {
+      "command": "diet-capture",
+      "aliases": [],
+      "mode": "canonical",
+      "intent_keywords": [
+        "餐食记录",
+        "我吃了",
+        "卡路里"
+      ],
+      "required_positionals": [],
+      "required_options": [
+        "--meal",
+        "--foods",
+        "--carbs",
+        "--protein",
+        "--fat"
+      ],
+      "template": "python cli/secondbrain.py --vault vault-template diet-capture --meal <meal> --foods <foods> --carbs <carbs> --protein <protein> --fat <fat>",
+      "execution_policy": {
+        "recall": "optional",
+        "precheck": "none",
+        "verify": "exit_code_and_path_only",
+        "fallback_on_failure": [
+          "schema_cache",
+          "help",
+          "source_snippet"
+        ]
+      }
+    },
+    {
+      "command": "diet-log",
+      "aliases": [],
+      "mode": "compatibility",
+      "intent_keywords": [
+        "diet-log"
+      ],
+      "required_positionals": [],
+      "required_options": [
+        "--meal",
+        "--foods",
+        "--carbs",
+        "--protein",
+        "--fat"
+      ],
+      "template": "python cli/secondbrain.py --vault vault-template diet-log --meal <meal> --foods <foods> --carbs <carbs> --protein <protein> --fat <fat>",
+      "execution_policy": {
+        "recall": "optional",
+        "precheck": "none",
+        "verify": "exit_code_and_path_only",
+        "fallback_on_failure": [
+          "schema_cache",
+          "help",
+          "source_snippet"
+        ]
+      }
+    },
+    {
+      "command": "doctor",
+      "aliases": [],
+      "mode": "canonical",
+      "intent_keywords": [
+        "环境诊断",
+        "doctor"
+      ],
+      "required_positionals": [],
+      "required_options": [],
+      "template": "python cli/secondbrain.py --vault vault-template doctor",
+      "execution_policy": {
+        "recall": "required",
+        "precheck": "none",
+        "verify": "exit_code_and_path_only",
+        "fallback_on_failure": [
+          "schema_cache",
+          "help",
+          "source_snippet"
+        ]
+      }
+    },
+    {
+      "command": "emerge",
+      "aliases": [],
+      "mode": "canonical",
+      "intent_keywords": [
+        "主题涌现",
+        "emerge"
+      ],
+      "required_positionals": [],
+      "required_options": [],
+      "template": "python cli/secondbrain.py --vault vault-template emerge",
+      "execution_policy": {
+        "recall": "required",
+        "precheck": "none",
+        "verify": "exit_code_and_path_only",
+        "fallback_on_failure": [
+          "schema_cache",
+          "help",
+          "source_snippet"
+        ]
+      }
+    },
+    {
+      "command": "graduate",
+      "aliases": [],
+      "mode": "canonical",
+      "intent_keywords": [
+        "提炼thinking",
+        "洞察沉淀",
+        "graduate"
+      ],
+      "required_positionals": [],
+      "required_options": [],
+      "template": "python cli/secondbrain.py --vault vault-template graduate",
+      "execution_policy": {
+        "recall": "required",
+        "precheck": "none",
+        "verify": "exit_code_and_path_only",
+        "fallback_on_failure": [
+          "schema_cache",
+          "help",
+          "source_snippet"
+        ]
+      }
+    },
+    {
+      "command": "idea-capture",
+      "aliases": [],
+      "mode": "canonical",
+      "intent_keywords": [
+        "记录灵感",
+        "我有一个想法"
+      ],
+      "required_positionals": [
+        "title"
+      ],
+      "required_options": [],
+      "template": "python cli/secondbrain.py --vault vault-template idea-capture <title>",
+      "execution_policy": {
+        "recall": "optional",
+        "precheck": "none",
+        "verify": "exit_code_and_path_only",
+        "fallback_on_failure": [
+          "schema_cache",
+          "help",
+          "source_snippet"
+        ]
+      }
+    },
+    {
+      "command": "idea-list",
+      "aliases": [],
+      "mode": "canonical",
+      "intent_keywords": [
+        "灵感列表",
+        "idea list"
+      ],
+      "required_positionals": [],
+      "required_options": [],
+      "template": "python cli/secondbrain.py --vault vault-template idea-list",
+      "execution_policy": {
+        "recall": "required",
+        "precheck": "none",
+        "verify": "exit_code_and_path_only",
+        "fallback_on_failure": [
+          "schema_cache",
+          "help",
+          "source_snippet"
+        ]
+      }
+    },
+    {
+      "command": "life-memo",
+      "aliases": [],
+      "mode": "canonical",
+      "intent_keywords": [
+        "个人备忘录",
+        "life memo"
+      ],
+      "required_positionals": [
+        "title"
+      ],
+      "required_options": [],
+      "template": "python cli/secondbrain.py --vault vault-template life-memo <title>",
+      "execution_policy": {
+        "recall": "optional",
+        "precheck": "none",
+        "verify": "exit_code_and_path_only",
+        "fallback_on_failure": [
+          "schema_cache",
+          "help",
+          "source_snippet"
+        ]
+      }
+    },
+    {
+      "command": "life-plan-set",
+      "aliases": [],
+      "mode": "canonical",
+      "intent_keywords": [
+        "设定生活计划",
+        "life plan"
+      ],
+      "required_positionals": [
+        "title"
+      ],
+      "required_options": [],
+      "template": "python cli/secondbrain.py --vault vault-template life-plan-set <title>",
+      "execution_policy": {
+        "recall": "required",
+        "precheck": "none",
+        "verify": "exit_code_and_path_only",
+        "fallback_on_failure": [
+          "schema_cache",
+          "help",
+          "source_snippet"
+        ]
+      }
+    },
+    {
+      "command": "life-status",
+      "aliases": [],
+      "mode": "canonical",
+      "intent_keywords": [
+        "生活计划状态",
+        "life status"
+      ],
+      "required_positionals": [],
+      "required_options": [],
+      "template": "python cli/secondbrain.py --vault vault-template life-status",
+      "execution_policy": {
+        "recall": "required",
+        "precheck": "none",
+        "verify": "exit_code_and_path_only",
+        "fallback_on_failure": [
+          "schema_cache",
+          "help",
+          "source_snippet"
+        ]
+      }
+    },
+    {
+      "command": "plan-today",
+      "aliases": [],
+      "mode": "compatibility",
+      "intent_keywords": [
+        "plan-today"
+      ],
+      "required_positionals": [],
+      "required_options": [],
+      "template": "python cli/secondbrain.py --vault vault-template plan-today",
+      "execution_policy": {
+        "recall": "required",
+        "precheck": "none",
+        "verify": "exit_code_and_path_only",
+        "fallback_on_failure": [
+          "schema_cache",
+          "help",
+          "source_snippet"
+        ]
+      }
+    },
+    {
+      "command": "project-close",
+      "aliases": [],
+      "mode": "canonical",
+      "intent_keywords": [
+        "关闭项目",
+        "project close"
+      ],
+      "required_positionals": [
+        "name"
+      ],
+      "required_options": [],
+      "template": "python cli/secondbrain.py --vault vault-template project-close <name>",
+      "execution_policy": {
+        "recall": "required",
+        "precheck": "none",
+        "verify": "exit_code_and_path_only",
+        "fallback_on_failure": [
+          "schema_cache",
+          "help",
+          "source_snippet"
+        ]
+      }
+    },
+    {
+      "command": "project-new",
+      "aliases": [],
+      "mode": "canonical",
+      "intent_keywords": [
+        "新建项目",
+        "project new"
+      ],
+      "required_positionals": [
+        "name"
+      ],
+      "required_options": [],
+      "template": "python cli/secondbrain.py --vault vault-template project-new <name>",
+      "execution_policy": {
+        "recall": "optional",
+        "precheck": "none",
+        "verify": "exit_code_and_path_only",
+        "fallback_on_failure": [
+          "schema_cache",
+          "help",
+          "source_snippet"
+        ]
+      }
+    },
+    {
+      "command": "project-query",
+      "aliases": [],
+      "mode": "canonical",
+      "intent_keywords": [
+        "查询项目",
+        "project query"
+      ],
+      "required_positionals": [
+        "name"
+      ],
+      "required_options": [],
+      "template": "python cli/secondbrain.py --vault vault-template project-query <name>",
+      "execution_policy": {
+        "recall": "required",
+        "precheck": "none",
+        "verify": "exit_code_and_path_only",
+        "fallback_on_failure": [
+          "schema_cache",
+          "help",
+          "source_snippet"
+        ]
+      }
+    },
+    {
+      "command": "project-start",
+      "aliases": [],
+      "mode": "canonical",
+      "intent_keywords": [
+        "启动计划",
+        "从backlog到active"
+      ],
+      "required_positionals": [
+        "name"
+      ],
+      "required_options": [],
+      "template": "python cli/secondbrain.py --vault vault-template project-start <name>",
+      "execution_policy": {
+        "recall": "optional",
+        "precheck": "none",
+        "verify": "exit_code_and_path_only",
+        "fallback_on_failure": [
+          "schema_cache",
+          "help",
+          "source_snippet"
+        ]
+      }
+    },
+    {
+      "command": "promote",
+      "aliases": [
+        "promote-resource"
+      ],
+      "mode": "canonical",
+      "intent_keywords": [
+        "promote"
+      ],
+      "required_positionals": [
+        "ref"
+      ],
+      "required_options": [],
+      "template": "python cli/secondbrain.py --vault vault-template promote <ref>",
+      "execution_policy": {
+        "recall": "required",
+        "precheck": "none",
+        "verify": "exit_code_and_path_only",
+        "fallback_on_failure": [
+          "schema_cache",
+          "help",
+          "source_snippet"
+        ]
+      }
+    },
+    {
+      "command": "research",
+      "aliases": [],
+      "mode": "canonical",
+      "intent_keywords": [
+        "调研",
+        "research"
+      ],
+      "required_positionals": [
+        "topic"
+      ],
+      "required_options": [],
+      "template": "python cli/secondbrain.py --vault vault-template research <topic>",
+      "execution_policy": {
+        "recall": "required",
+        "precheck": "none",
+        "verify": "exit_code_and_path_only",
+        "fallback_on_failure": [
+          "schema_cache",
+          "help",
+          "source_snippet"
+        ]
+      }
+    },
+    {
+      "command": "session-log",
+      "aliases": [],
+      "mode": "canonical",
+      "intent_keywords": [
+        "总结本轮对话",
+        "写入sessions",
+        "session-log"
+      ],
+      "required_positionals": [],
+      "required_options": [
+        "--title",
+        "--summary"
+      ],
+      "template": "python cli/secondbrain.py --vault vault-template session-log --title <title> --summary <summary>",
+      "execution_policy": {
+        "recall": "optional",
+        "precheck": "none",
+        "verify": "exit_code_and_path_only",
+        "fallback_on_failure": [
+          "schema_cache",
+          "help",
+          "source_snippet"
+        ]
+      }
+    },
+    {
+      "command": "start-session",
+      "aliases": [],
+      "mode": "canonical",
+      "intent_keywords": [
+        "开始会话",
+        "新建session",
+        "session"
+      ],
+      "required_positionals": [],
+      "required_options": [],
+      "template": "python cli/secondbrain.py --vault vault-template start-session",
+      "execution_policy": {
+        "recall": "optional",
+        "precheck": "none",
+        "verify": "exit_code_and_path_only",
+        "fallback_on_failure": [
+          "schema_cache",
+          "help",
+          "source_snippet"
+        ]
+      }
+    },
+    {
+      "command": "thinking-capture",
+      "aliases": [],
+      "mode": "canonical",
+      "intent_keywords": [
+        "记录洞见",
+        "观察记录"
+      ],
+      "required_positionals": [
+        "title"
+      ],
+      "required_options": [],
+      "template": "python cli/secondbrain.py --vault vault-template thinking-capture <title>",
+      "execution_policy": {
+        "recall": "optional",
+        "precheck": "none",
+        "verify": "exit_code_and_path_only",
+        "fallback_on_failure": [
+          "schema_cache",
+          "help",
+          "source_snippet"
+        ]
+      }
+    },
+    {
+      "command": "today",
+      "aliases": [],
+      "mode": "canonical",
+      "intent_keywords": [
+        "今天做什么",
+        "今日计划",
+        "today"
+      ],
+      "required_positionals": [],
+      "required_options": [],
+      "template": "python cli/secondbrain.py --vault vault-template today",
+      "execution_policy": {
+        "recall": "optional",
+        "precheck": "none",
+        "verify": "exit_code_and_path_only",
+        "fallback_on_failure": [
+          "schema_cache",
+          "help",
+          "source_snippet"
+        ]
+      }
+    },
+    {
+      "command": "trace",
+      "aliases": [],
+      "mode": "canonical",
+      "intent_keywords": [
+        "追踪演化",
+        "trace"
+      ],
+      "required_positionals": [
+        "topic"
+      ],
+      "required_options": [],
+      "template": "python cli/secondbrain.py --vault vault-template trace <topic>",
+      "execution_policy": {
+        "recall": "required",
+        "precheck": "none",
+        "verify": "exit_code_and_path_only",
+        "fallback_on_failure": [
+          "schema_cache",
+          "help",
+          "source_snippet"
+        ]
+      }
+    }
+  ]
+}
+
+

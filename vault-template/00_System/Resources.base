@@ -1,0 +1,6 @@
+name: Resources
+description: Placeholder base file. Replace with Obsidian Bases view if enabled.
+source: 04_Resources
+views:
+  - type: table
+    name: 表格

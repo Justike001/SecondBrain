@@ -1,0 +1,6 @@
+interface:
+  display_name: "SecondBrain CLI"
+  short_description: "Slash commands for SecondBrain vault workflows"
+  default_prompt: "Use $secondbrain-cli to run today/session/capture/research/trace/connect/emerge/challenge and project workflows."
+policy:
+  allow_implicit_invocation: true

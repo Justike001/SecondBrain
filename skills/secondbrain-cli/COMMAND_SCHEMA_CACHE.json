@@ -1,0 +1,1171 @@
+{
+  "version": 1,
+  "generated_from": "cli/secondbrain.py",
+  "generated_at": "2026-03-05T09:37:16+08:00",
+  "policy": {
+    "use_this_as_param_cache": true,
+    "read_help_or_source_only_on_failure": true
+  },
+  "commands": [
+    {
+      "command": "archive-daily",
+      "aliases": [],
+      "positionals": [],
+      "options": [
+        {
+          "dest": "older_than",
+          "required": false,
+          "nargs": null,
+          "choices": null,
+          "default": null,
+          "flags": [
+            "--older-than"
+          ]
+        }
+      ]
+    },
+    {
+      "command": "article-draft",
+      "aliases": [],
+      "positionals": [
+        {
+          "dest": "title",
+          "required": true,
+          "nargs": null,
+          "choices": null,
+          "default": null,
+          "name": "title"
+        }
+      ],
+      "options": [
+        {
+          "dest": "content",
+          "required": false,
+          "nargs": null,
+          "choices": null,
+          "default": "",
+          "flags": [
+            "--content"
+          ]
+        },
+        {
+          "dest": "tags",
+          "required": false,
+          "nargs": null,
+          "choices": null,
+          "default": "",
+          "flags": [
+            "--tags"
+          ]
+        }
+      ]
+    },
+    {
+      "command": "article-move",
+      "aliases": [],
+      "positionals": [
+        {
+          "dest": "ref",
+          "required": true,
+          "nargs": null,
+          "choices": null,
+          "default": null,
+          "name": "ref"
+        }
+      ],
+      "options": [
+        {
+          "dest": "to",
+          "required": true,
+          "nargs": null,
+          "choices": [
+            "scheduled",
+            "published"
+          ],
+          "default": null,
+          "flags": [
+            "--to"
+          ]
+        },
+        {
+          "dest": "date",
+          "required": false,
+          "nargs": null,
+          "choices": null,
+          "default": null,
+          "flags": [
+            "--date"
+          ]
+        },
+        {
+          "dest": "url",
+          "required": false,
+          "nargs": null,
+          "choices": null,
+          "default": "",
+          "flags": [
+            "--url"
+          ]
+        }
+      ]
+    },
+    {
+      "command": "ask",
+      "aliases": [],
+      "positionals": [
+        {
+          "dest": "question",
+          "required": true,
+          "nargs": null,
+          "choices": null,
+          "default": null,
+          "name": "question"
+        }
+      ],
+      "options": [
+        {
+          "dest": "top_k",
+          "required": false,
+          "nargs": null,
+          "choices": null,
+          "default": 6,
+          "flags": [
+            "--top-k"
+          ]
+        },
+        {
+          "dest": "engine",
+          "required": false,
+          "nargs": null,
+          "choices": [
+            "fs",
+            "obsidian",
+            "hybrid"
+          ],
+          "default": "hybrid",
+          "flags": [
+            "--engine"
+          ]
+        }
+      ]
+    },
+    {
+      "command": "brainstorm",
+      "aliases": [],
+      "positionals": [
+        {
+          "dest": "topic",
+          "required": true,
+          "nargs": null,
+          "choices": null,
+          "default": null,
+          "name": "topic"
+        }
+      ],
+      "options": [
+        {
+          "dest": "top_k",
+          "required": false,
+          "nargs": null,
+          "choices": null,
+          "default": 12,
+          "flags": [
+            "--top-k"
+          ]
+        }
+      ]
+    },
+    {
+      "command": "capture",
+      "aliases": [
+        "capture-url"
+      ],
+      "positionals": [
+        {
+          "dest": "url",
+          "required": true,
+          "nargs": null,
+          "choices": null,
+          "default": null,
+          "name": "url"
+        }
+      ],
+      "options": [
+        {
+          "dest": "fetch",
+          "required": false,
+          "nargs": 0,
+          "choices": null,
+          "default": false,
+          "flags": [
+            "--fetch"
+          ]
+        },
+        {
+          "dest": "fetch_timeout",
+          "required": false,
+          "nargs": null,
+          "choices": null,
+          "default": 45,
+          "flags": [
+            "--fetch-timeout"
+          ]
+        },
+        {
+          "dest": "resource_type",
+          "required": false,
+          "nargs": null,
+          "choices": [
+            "prompt",
+            "article",
+            "video",
+            "image"
+          ],
+          "default": "article",
+          "flags": [
+            "--resource-type"
+          ]
+        },
+        {
+          "dest": "no_agent_reach",
+          "required": false,
+          "nargs": 0,
+          "choices": null,
+          "default": false,
+          "flags": [
+            "--no-agent-reach"
+          ]
+        },
+        {
+          "dest": "agent_reach_cmd",
+          "required": false,
+          "nargs": null,
+          "choices": null,
+          "default": null,
+          "flags": [
+            "--agent-reach-cmd"
+          ]
+        },
+        {
+          "dest": "agent_reach_arg",
+          "required": false,
+          "nargs": null,
+          "choices": null,
+          "default": null,
+          "flags": [
+            "--agent-reach-arg"
+          ]
+        }
+      ]
+    },
+    {
+      "command": "challenge",
+      "aliases": [],
+      "positionals": [
+        {
+          "dest": "belief",
+          "required": true,
+          "nargs": null,
+          "choices": null,
+          "default": null,
+          "name": "belief"
+        }
+      ],
+      "options": [
+        {
+          "dest": "top_k",
+          "required": false,
+          "nargs": null,
+          "choices": null,
+          "default": 6,
+          "flags": [
+            "--top-k"
+          ]
+        }
+      ]
+    },
+    {
+      "command": "close",
+      "aliases": [],
+      "positionals": [],
+      "options": [
+        {
+          "dest": "no_auto_archive",
+          "required": false,
+          "nargs": 0,
+          "choices": null,
+          "default": false,
+          "flags": [
+            "--no-auto-archive"
+          ]
+        }
+      ]
+    },
+    {
+      "command": "connect",
+      "aliases": [],
+      "positionals": [
+        {
+          "dest": "domain_a",
+          "required": true,
+          "nargs": null,
+          "choices": null,
+          "default": null,
+          "name": "domain_a"
+        },
+        {
+          "dest": "domain_b",
+          "required": true,
+          "nargs": null,
+          "choices": null,
+          "default": null,
+          "name": "domain_b"
+        }
+      ],
+      "options": [
+        {
+          "dest": "top_k",
+          "required": false,
+          "nargs": null,
+          "choices": null,
+          "default": 6,
+          "flags": [
+            "--top-k"
+          ]
+        }
+      ]
+    },
+    {
+      "command": "daily-open",
+      "aliases": [],
+      "positionals": [
+        {
+          "dest": "date",
+          "required": false,
+          "nargs": "?",
+          "choices": null,
+          "default": "today",
+          "name": "date"
+        }
+      ],
+      "options": [
+        {
+          "dest": "create_if_missing",
+          "required": false,
+          "nargs": 0,
+          "choices": null,
+          "default": false,
+          "flags": [
+            "--create-if-missing"
+          ]
+        },
+        {
+          "dest": "no_archive_search",
+          "required": false,
+          "nargs": 0,
+          "choices": null,
+          "default": false,
+          "flags": [
+            "--no-archive-search"
+          ]
+        }
+      ]
+    },
+    {
+      "command": "daily-wrapup",
+      "aliases": [],
+      "positionals": [],
+      "options": [
+        {
+          "dest": "date",
+          "required": false,
+          "nargs": null,
+          "choices": null,
+          "default": "today",
+          "flags": [
+            "--date"
+          ]
+        },
+        {
+          "dest": "push",
+          "required": false,
+          "nargs": 0,
+          "choices": null,
+          "default": false,
+          "flags": [
+            "--push"
+          ]
+        },
+        {
+          "dest": "archive",
+          "required": false,
+          "nargs": 0,
+          "choices": null,
+          "default": false,
+          "flags": [
+            "--archive"
+          ]
+        },
+        {
+          "dest": "archive_older_than",
+          "required": false,
+          "nargs": null,
+          "choices": null,
+          "default": null,
+          "flags": [
+            "--archive-older-than"
+          ]
+        }
+      ]
+    },
+    {
+      "command": "diet-capture",
+      "aliases": [],
+      "positionals": [],
+      "options": [
+        {
+          "dest": "date",
+          "required": false,
+          "nargs": null,
+          "choices": null,
+          "default": null,
+          "flags": [
+            "--date"
+          ]
+        },
+        {
+          "dest": "day_type",
+          "required": false,
+          "nargs": null,
+          "choices": null,
+          "default": "training",
+          "flags": [
+            "--day-type"
+          ]
+        },
+        {
+          "dest": "meal",
+          "required": true,
+          "nargs": null,
+          "choices": null,
+          "default": null,
+          "flags": [
+            "--meal"
+          ]
+        },
+        {
+          "dest": "foods",
+          "required": true,
+          "nargs": null,
+          "choices": null,
+          "default": null,
+          "flags": [
+            "--foods"
+          ]
+        },
+        {
+          "dest": "carbs",
+          "required": true,
+          "nargs": null,
+          "choices": null,
+          "default": null,
+          "flags": [
+            "--carbs"
+          ]
+        },
+        {
+          "dest": "protein",
+          "required": true,
+          "nargs": null,
+          "choices": null,
+          "default": null,
+          "flags": [
+            "--protein"
+          ]
+        },
+        {
+          "dest": "fat",
+          "required": true,
+          "nargs": null,
+          "choices": null,
+          "default": null,
+          "flags": [
+            "--fat"
+          ]
+        },
+        {
+          "dest": "kcal",
+          "required": false,
+          "nargs": null,
+          "choices": null,
+          "default": null,
+          "flags": [
+            "--kcal"
+          ]
+        }
+      ]
+    },
+    {
+      "command": "diet-log",
+      "aliases": [],
+      "positionals": [],
+      "options": [
+        {
+          "dest": "date",
+          "required": false,
+          "nargs": null,
+          "choices": null,
+          "default": null,
+          "flags": [
+            "--date"
+          ]
+        },
+        {
+          "dest": "day_type",
+          "required": false,
+          "nargs": null,
+          "choices": null,
+          "default": "training",
+          "flags": [
+            "--day-type"
+          ]
+        },
+        {
+          "dest": "meal",
+          "required": true,
+          "nargs": null,
+          "choices": null,
+          "default": null,
+          "flags": [
+            "--meal"
+          ]
+        },
+        {
+          "dest": "foods",
+          "required": true,
+          "nargs": null,
+          "choices": null,
+          "default": null,
+          "flags": [
+            "--foods"
+          ]
+        },
+        {
+          "dest": "carbs",
+          "required": true,
+          "nargs": null,
+          "choices": null,
+          "default": null,
+          "flags": [
+            "--carbs"
+          ]
+        },
+        {
+          "dest": "protein",
+          "required": true,
+          "nargs": null,
+          "choices": null,
+          "default": null,
+          "flags": [
+            "--protein"
+          ]
+        },
+        {
+          "dest": "fat",
+          "required": true,
+          "nargs": null,
+          "choices": null,
+          "default": null,
+          "flags": [
+            "--fat"
+          ]
+        },
+        {
+          "dest": "kcal",
+          "required": false,
+          "nargs": null,
+          "choices": null,
+          "default": null,
+          "flags": [
+            "--kcal"
+          ]
+        }
+      ]
+    },
+    {
+      "command": "doctor",
+      "aliases": [],
+      "positionals": [],
+      "options": []
+    },
+    {
+      "command": "emerge",
+      "aliases": [],
+      "positionals": [],
+      "options": [
+        {
+          "dest": "days",
+          "required": false,
+          "nargs": null,
+          "choices": null,
+          "default": 30,
+          "flags": [
+            "--days"
+          ]
+        },
+        {
+          "dest": "top_k",
+          "required": false,
+          "nargs": null,
+          "choices": null,
+          "default": 6,
+          "flags": [
+            "--top-k"
+          ]
+        }
+      ]
+    },
+    {
+      "command": "graduate",
+      "aliases": [],
+      "positionals": [],
+      "options": [
+        {
+          "dest": "days",
+          "required": false,
+          "nargs": null,
+          "choices": null,
+          "default": null,
+          "flags": [
+            "--days"
+          ]
+        },
+        {
+          "dest": "force",
+          "required": false,
+          "nargs": 0,
+          "choices": null,
+          "default": false,
+          "flags": [
+            "--force"
+          ]
+        }
+      ]
+    },
+    {
+      "command": "idea-capture",
+      "aliases": [],
+      "positionals": [
+        {
+          "dest": "title",
+          "required": true,
+          "nargs": null,
+          "choices": null,
+          "default": null,
+          "name": "title"
+        }
+      ],
+      "options": [
+        {
+          "dest": "content",
+          "required": false,
+          "nargs": null,
+          "choices": null,
+          "default": "",
+          "flags": [
+            "--content"
+          ]
+        },
+        {
+          "dest": "tags",
+          "required": false,
+          "nargs": null,
+          "choices": null,
+          "default": "",
+          "flags": [
+            "--tags"
+          ]
+        }
+      ]
+    },
+    {
+      "command": "idea-list",
+      "aliases": [],
+      "positionals": [],
+      "options": [
+        {
+          "dest": "top_k",
+          "required": false,
+          "nargs": null,
+          "choices": null,
+          "default": 30,
+          "flags": [
+            "--top-k"
+          ]
+        }
+      ]
+    },
+    {
+      "command": "life-memo",
+      "aliases": [],
+      "positionals": [
+        {
+          "dest": "title",
+          "required": true,
+          "nargs": null,
+          "choices": null,
+          "default": null,
+          "name": "title"
+        }
+      ],
+      "options": [
+        {
+          "dest": "content",
+          "required": false,
+          "nargs": null,
+          "choices": null,
+          "default": "",
+          "flags": [
+            "--content"
+          ]
+        },
+        {
+          "dest": "tags",
+          "required": false,
+          "nargs": null,
+          "choices": null,
+          "default": "",
+          "flags": [
+            "--tags"
+          ]
+        }
+      ]
+    },
+    {
+      "command": "life-plan-set",
+      "aliases": [],
+      "positionals": [
+        {
+          "dest": "title",
+          "required": true,
+          "nargs": null,
+          "choices": null,
+          "default": null,
+          "name": "title"
+        }
+      ],
+      "options": [
+        {
+          "dest": "content",
+          "required": false,
+          "nargs": null,
+          "choices": null,
+          "default": "",
+          "flags": [
+            "--content"
+          ]
+        },
+        {
+          "dest": "area",
+          "required": false,
+          "nargs": null,
+          "choices": null,
+          "default": "",
+          "flags": [
+            "--area"
+          ]
+        },
+        {
+          "dest": "status",
+          "required": false,
+          "nargs": null,
+          "choices": [
+            "active",
+            "backlog",
+            "closed"
+          ],
+          "default": "active",
+          "flags": [
+            "--status"
+          ]
+        },
+        {
+          "dest": "tags",
+          "required": false,
+          "nargs": null,
+          "choices": null,
+          "default": "",
+          "flags": [
+            "--tags"
+          ]
+        }
+      ]
+    },
+    {
+      "command": "life-status",
+      "aliases": [],
+      "positionals": [],
+      "options": [
+        {
+          "dest": "top_k",
+          "required": false,
+          "nargs": null,
+          "choices": null,
+          "default": 20,
+          "flags": [
+            "--top-k"
+          ]
+        }
+      ]
+    },
+    {
+      "command": "plan-today",
+      "aliases": [],
+      "positionals": [],
+      "options": []
+    },
+    {
+      "command": "project-close",
+      "aliases": [],
+      "positionals": [
+        {
+          "dest": "name",
+          "required": true,
+          "nargs": null,
+          "choices": null,
+          "default": null,
+          "name": "name"
+        }
+      ],
+      "options": []
+    },
+    {
+      "command": "project-new",
+      "aliases": [],
+      "positionals": [
+        {
+          "dest": "name",
+          "required": true,
+          "nargs": null,
+          "choices": null,
+          "default": null,
+          "name": "name"
+        }
+      ],
+      "options": []
+    },
+    {
+      "command": "project-query",
+      "aliases": [],
+      "positionals": [
+        {
+          "dest": "name",
+          "required": true,
+          "nargs": null,
+          "choices": null,
+          "default": null,
+          "name": "name"
+        }
+      ],
+      "options": [
+        {
+          "dest": "top_k",
+          "required": false,
+          "nargs": null,
+          "choices": null,
+          "default": 10,
+          "flags": [
+            "--top-k"
+          ]
+        }
+      ]
+    },
+    {
+      "command": "project-start",
+      "aliases": [],
+      "positionals": [
+        {
+          "dest": "name",
+          "required": true,
+          "nargs": null,
+          "choices": null,
+          "default": null,
+          "name": "name"
+        }
+      ],
+      "options": []
+    },
+    {
+      "command": "promote",
+      "aliases": [
+        "promote-resource"
+      ],
+      "positionals": [
+        {
+          "dest": "ref",
+          "required": true,
+          "nargs": null,
+          "choices": null,
+          "default": null,
+          "name": "ref"
+        }
+      ],
+      "options": [
+        {
+          "dest": "status",
+          "required": false,
+          "nargs": null,
+          "choices": null,
+          "default": "active",
+          "flags": [
+            "--status"
+          ]
+        },
+        {
+          "dest": "authoring",
+          "required": false,
+          "nargs": null,
+          "choices": [
+            "human",
+            "agent",
+            "mixed"
+          ],
+          "default": "mixed",
+          "flags": [
+            "--authoring"
+          ]
+        }
+      ]
+    },
+    {
+      "command": "research",
+      "aliases": [],
+      "positionals": [
+        {
+          "dest": "topic",
+          "required": true,
+          "nargs": null,
+          "choices": null,
+          "default": null,
+          "name": "topic"
+        }
+      ],
+      "options": [
+        {
+          "dest": "route",
+          "required": false,
+          "nargs": null,
+          "choices": [
+            "inbox",
+            "library",
+            "thinking"
+          ],
+          "default": "inbox",
+          "flags": [
+            "--route"
+          ]
+        },
+        {
+          "dest": "top_k",
+          "required": false,
+          "nargs": null,
+          "choices": null,
+          "default": 6,
+          "flags": [
+            "--top-k"
+          ]
+        },
+        {
+          "dest": "engine",
+          "required": false,
+          "nargs": null,
+          "choices": [
+            "fs",
+            "obsidian",
+            "hybrid"
+          ],
+          "default": "hybrid",
+          "flags": [
+            "--engine"
+          ]
+        },
+        {
+          "dest": "fetch_timeout",
+          "required": false,
+          "nargs": null,
+          "choices": null,
+          "default": 45,
+          "flags": [
+            "--fetch-timeout"
+          ]
+        },
+        {
+          "dest": "no_agent_reach",
+          "required": false,
+          "nargs": 0,
+          "choices": null,
+          "default": false,
+          "flags": [
+            "--no-agent-reach"
+          ]
+        },
+        {
+          "dest": "agent_reach_cmd",
+          "required": false,
+          "nargs": null,
+          "choices": null,
+          "default": null,
+          "flags": [
+            "--agent-reach-cmd"
+          ]
+        },
+        {
+          "dest": "agent_reach_arg",
+          "required": false,
+          "nargs": null,
+          "choices": null,
+          "default": null,
+          "flags": [
+            "--agent-reach-arg"
+          ]
+        },
+        {
+          "dest": "force_fs_write",
+          "required": false,
+          "nargs": 0,
+          "choices": null,
+          "default": false,
+          "flags": [
+            "--force-fs-write"
+          ]
+        },
+        {
+          "dest": "url_mode",
+          "required": false,
+          "nargs": null,
+          "choices": [
+            "auto",
+            "research"
+          ],
+          "default": "auto",
+          "flags": [
+            "--url-mode"
+          ]
+        }
+      ]
+    },
+    {
+      "command": "session-log",
+      "aliases": [],
+      "positionals": [],
+      "options": [
+        {
+          "dest": "title",
+          "required": true,
+          "nargs": null,
+          "choices": null,
+          "default": null,
+          "flags": [
+            "--title"
+          ]
+        },
+        {
+          "dest": "summary",
+          "required": true,
+          "nargs": null,
+          "choices": null,
+          "default": null,
+          "flags": [
+            "--summary"
+          ]
+        },
+        {
+          "dest": "date",
+          "required": false,
+          "nargs": null,
+          "choices": null,
+          "default": "today",
+          "flags": [
+            "--date"
+          ]
+        }
+      ]
+    },
+    {
+      "command": "start-session",
+      "aliases": [],
+      "positionals": [],
+      "options": []
+    },
+    {
+      "command": "thinking-capture",
+      "aliases": [],
+      "positionals": [
+        {
+          "dest": "title",
+          "required": true,
+          "nargs": null,
+          "choices": null,
+          "default": null,
+          "name": "title"
+        }
+      ],
+      "options": [
+        {
+          "dest": "content",
+          "required": false,
+          "nargs": null,
+          "choices": null,
+          "default": "",
+          "flags": [
+            "--content"
+          ]
+        },
+        {
+          "dest": "tags",
+          "required": false,
+          "nargs": null,
+          "choices": null,
+          "default": "",
+          "flags": [
+            "--tags"
+          ]
+        }
+      ]
+    },
+    {
+      "command": "today",
+      "aliases": [],
+      "positionals": [],
+      "options": []
+    },
+    {
+      "command": "trace",
+      "aliases": [],
+      "positionals": [
+        {
+          "dest": "topic",
+          "required": true,
+          "nargs": null,
+          "choices": null,
+          "default": null,
+          "name": "topic"
+        }
+      ],
+      "options": [
+        {
+          "dest": "top_k",
+          "required": false,
+          "nargs": null,
+          "choices": null,
+          "default": 8,
+          "flags": [
+            "--top-k"
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+

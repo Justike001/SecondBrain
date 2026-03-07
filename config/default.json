@@ -1,0 +1,11 @@
+{
+  "vault_path": "vault-template",
+  "timezone": "local",
+  "archive_threshold_days": 30,
+  "auto_archive_on_close": true,
+  "graduate_window_days": 7,
+  "templates_path": "00_System/Templates",
+  "dashboards_mode": "dataview",
+  "owner": "user"
+}
+

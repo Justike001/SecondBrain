@@ -1,0 +1,6 @@
+name: Articles
+description: Placeholder base file. Replace with Obsidian Bases view if enabled.
+source: 07_Articles
+views:
+  - type: table
+    name: 表格
