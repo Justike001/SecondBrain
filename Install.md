@@ -7,6 +7,50 @@ This file is for agents and automation, not end users.
 When operating this repository, assume the default vault is the bundled template at `./vault-template`.
 Do not assume any separate private vault repository exists.
 
+## Required Dependencies
+
+The following components are required for a usable setup:
+
+1. Install Python 3.10+ and ensure `python` is available on PATH.
+2. Install Git.
+3. Install Obsidian desktop.
+4. Install Obsidian Skills from `https://github.com/kepano/obsidian-skills.git`.
+5. Install Agent-Reach from `https://github.com/Panniantong/Agent-Reach.git`.
+
+These are not optional for the intended local workflow:
+
+- Obsidian is required to open and operate the vault as an actual knowledge workspace.
+- Obsidian Skills is required for the intended agent-assisted Obsidian workflow.
+- Agent-Reach is the preferred fetch path for URL capture and research workflows.
+
+## Obsidian Setup Requirements
+
+After installing Obsidian:
+
+1. Open `vault-template/` as a vault, or open your copied personal vault.
+2. Enable Obsidian command-line access / command URI support in Obsidian settings.
+3. Allow community plugins if Obsidian starts in restricted mode.
+4. Install and enable the required plugin or workflow dependency from `obsidian-skills`.
+
+Operational expectation:
+
+- Agents may assume Obsidian is installed.
+- Agents may assume the vault can be opened by Obsidian.
+- Agents should warn if command-line permission is not enabled, because some automation paths depend on it.
+
+## Agent-Reach Setup Requirements
+
+After installing Agent-Reach:
+
+1. Ensure the executable or wrapper command is callable from this machine.
+2. If needed, update `config/agent-reach.json`.
+3. The repository default points to `scripts/agent-reach-url-wrapper.ps1`, so any local Agent-Reach install must be compatible with that wrapper path or be overridden explicitly.
+
+Fallback rule:
+
+- If Agent-Reach is unavailable, URL capture may still partially work through fallback fetch paths.
+- For the intended setup, agents should still treat Agent-Reach as required and report missing installation as an environment gap.
+
 ## Default Operating Rule
 
 - Repository root: current working copy of `MySecondBrain-CLI`
@@ -66,8 +110,13 @@ python cli/secondbrain.py --vault D:/path/to/my-vault today
 Before reporting success, agents should verify:
 
 1. `vault-template/00_System/Templates/` exists.
-2. `python cli/secondbrain.py --vault vault-template doctor` runs.
-3. Commands and docs do not mention private usernames, private paths, or private repository URLs.
+2. Obsidian is installed.
+3. Obsidian command-line permission is enabled.
+4. `obsidian-skills` has been installed from `https://github.com/kepano/obsidian-skills.git`.
+5. Agent-Reach has been installed from `https://github.com/Panniantong/Agent-Reach.git`.
+6. `python cli/secondbrain.py --vault vault-template doctor` runs.
+7. URL capture configuration is not broken by local Agent-Reach setup.
+8. Commands and docs do not mention private usernames, private paths, or private repository URLs.
 
 ## Non-Goals
 

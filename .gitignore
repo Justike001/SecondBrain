@@ -13,6 +13,8 @@ Thumbs.db
 *.tmp
 tmp/
 .git_backup_old/
+__pycache__/
+*.pyc
 config/local.json
 
 # Vault content privacy for repo2: keep hierarchy, stop tracking detailed note files
